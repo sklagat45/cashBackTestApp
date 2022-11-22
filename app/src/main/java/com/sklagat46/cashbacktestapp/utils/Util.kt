@@ -1,6 +1,8 @@
 package com.sklagat46.cashbacktestapp.utils
 
 import java.io.IOException
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -21,6 +23,12 @@ object Util {
             ex.printStackTrace()
             ""
         }
+    }
+    fun roundToDecimal(number: String):String{
+        val df = DecimalFormat("#.##")
+        df.roundingMode = RoundingMode.DOWN
+        val roundoff = df.format(number)
+        return roundoff
     }
 
 }

@@ -32,7 +32,7 @@ class OffersFragment : Fragment(R.layout.fragment_offers) {
         getCurrentDate()
         fetchRemoteOffers()
         setUpRv()
-        fetchAndDisplayOffers(date)
+        fetchAndDisplayOffers()
 
     }
 
@@ -41,12 +41,10 @@ class OffersFragment : Fragment(R.layout.fragment_offers) {
         val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
         date= df.format(currentDate)
     }
-    private fun fetchAndDisplayOffers(dateString:String) {
-        offersViewModel.getLocalOffers(dateString).onEach { offersList ->
+    private fun fetchAndDisplayOffers() {
+        offersViewModel.getLocalOffers().onEach { offersList ->
             if (offersList.isNotEmpty()) {
                 offersAdapter.submitList(offersList)
-                Timber.e("Your Offers List is not empty..")
-
             } else {
                 Timber.d("Your Offers List is Empty..")
             }

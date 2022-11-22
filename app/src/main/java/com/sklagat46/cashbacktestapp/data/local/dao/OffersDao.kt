@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface OffersDao : CoroutineBaseDao<Offers> {
-    @Query("SELECT * FROM Offers WHERE offerEndDate >= :dateString ORDER BY promotionDetailsRanking ASC")
-    fun getOffers(dateString:String): Flow<List<Offers>>
+    @Query("SELECT * FROM Offers WHERE (strftime('%s',offerEndDate) - strftime('%s','now','localtime'))/60 >= 0 AND (strftime('%s',offerStartDate) - strftime('%s','now','localtime'))/60<=0 ORDER BY promotionDetailsRanking ASC")
+    fun getOffers(): Flow<List<Offers>>
 }

@@ -62,8 +62,8 @@ internal class OffersRepositoryImpl(
                 }
         }
 
-        override fun getCurrentOffers(dateString:String): Flow<List<Offers>> {
-                return offersDao.getOffers(dateString)
+        override fun getCurrentOffers(): Flow<List<Offers>> {
+                return offersDao.getOffers()
         }
 
 }

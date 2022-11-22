@@ -42,8 +42,8 @@ class OffersViewModel(
         emit(offersRepository.fetchCurrentOffers())
     }
 
-    fun getLocalOffers(dateString:String): Flow<List<Offers>> {
-        return offersRepository.getCurrentOffers(dateString)
+    fun getLocalOffers(): Flow<List<Offers>> {
+        return offersRepository.getCurrentOffers()
     }
 
 

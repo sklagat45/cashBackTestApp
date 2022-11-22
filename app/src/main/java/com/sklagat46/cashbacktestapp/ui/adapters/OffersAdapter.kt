@@ -23,7 +23,13 @@ class OffersAdapter(private val context: Context) : ListAdapter<Offers, OffersAd
             offersData.apply {
                 itemView.tvProductName.text =  productName.toString()
                 itemView.tvKshBackAmount.text =  productCashBack.toString()
-                itemView.tvKshComAmount.text =  promotion_details_retailer_commission.toString()
+                var com =""
+                if (productCashBack != null) {
+                    com = promotion_details_retailer_commission?.div(100)?.times(productCashBack).toString()
+                }
+//                var newCom =Util.roundToDecimal(com)
+
+                itemView.tvKshComAmount.text = com.toString()
                 itemView.tvQuantity.text =  productSize.toString()
                 itemView.tvDate.text =  Util.dateStringToReadableFullDate(offerEndDate)
                 itemView.tvProductName.text =  productName.toString()

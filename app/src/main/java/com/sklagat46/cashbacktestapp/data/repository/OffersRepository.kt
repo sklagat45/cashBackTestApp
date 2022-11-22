@@ -8,5 +8,5 @@ import com.sklagat46.cashbacktestapp.data.remote.model.Result
 
 interface OffersRepository {
     suspend fun fetchCurrentOffers(): Result<Boolean>
-    fun getCurrentOffers(dateString:String): Flow<List<Offers>>
+    fun getCurrentOffers(): Flow<List<Offers>>
 }

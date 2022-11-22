@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpViews() {
-        //optimisation
         binding.viewPager.offscreenPageLimit = 5
         pagerAdapter = BottomBarAdapter(supportFragmentManager)
         pagerAdapter.addFragments(HomeFragment())
@@ -60,6 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bottomNavBar() {
+        binding.viewPager.currentItem = 3
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.m_home -> {
