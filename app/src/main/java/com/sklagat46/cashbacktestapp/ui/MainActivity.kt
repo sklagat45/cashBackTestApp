@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity() {
         pagerAdapter.addFragments(DocumentsFragment())
         pagerAdapter.addFragments(OffersFragment())
         pagerAdapter.addFragments(AccountFragment())
+        binding.viewPager.currentItem = 3
+
         binding.viewPager.adapter = pagerAdapter
         bottomNavBar()
     }
@@ -62,9 +64,7 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.currentItem = 3
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
-                R.id.m_offers -> {
-                    binding.viewPager.currentItem = 3
-                }
+
                 R.id.m_home -> {
                     binding.viewPager.currentItem = 0
                 }
@@ -74,7 +74,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.m_document -> {
                     binding.viewPager.currentItem = 2
                 }
-
+                R.id.m_offers -> {
+                    binding.viewPager.currentItem = 3
+                }
                 R.id.m_account -> {
                     binding.viewPager.currentItem = 4
                 }

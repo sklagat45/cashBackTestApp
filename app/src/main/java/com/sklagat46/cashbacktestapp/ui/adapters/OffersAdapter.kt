@@ -36,7 +36,7 @@ class OffersAdapter(private val context: Context) : ListAdapter<Offers, OffersAd
 
                 Picasso.with(context).load(productImage).fit().centerCrop()
                     .placeholder(R.drawable.ic_app_icon_foreground)
-                    .error(R.drawable.ic_app_icon_foreground)
+                    .error(R.drawable.ic_launcher_foreground)
                     .into(itemView.ivProductImage);
             }
         }
