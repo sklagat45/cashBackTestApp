@@ -12,7 +12,6 @@ class BottomBarAdapter(fragmentManager: FragmentManager) :
     FragmentStatePagerAdapter(fragmentManager) {
     private val fragments: MutableList<Fragment> = ArrayList()
 
-    // Our custom method that populates this Adapter with Fragments
     fun addFragments(fragment: Fragment) {
         fragments.add(fragment)
     }

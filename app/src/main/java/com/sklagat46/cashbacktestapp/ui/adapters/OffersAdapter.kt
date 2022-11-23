@@ -25,17 +25,19 @@ class OffersAdapter(private val context: Context) : ListAdapter<Offers, OffersAd
                 itemView.tvKshBackAmount.text =  productCashBack.toString()
                 var com =""
                 if (productCashBack != null) {
-                    com = promotion_details_retailer_commission?.div(100)?.times(productCashBack).toString()
+                    com = promotion_details_retailer_commission?.div(100)?.times(productCashBack.div(100)).toString()
                 }
-//                var newCom =Util.roundToDecimal(com)
+                //com=0.5/100 * 3/100
 
                 itemView.tvKshComAmount.text = com.toString()
                 itemView.tvQuantity.text =  productSize.toString()
                 itemView.tvDate.text =  Util.dateStringToReadableFullDate(offerEndDate)
                 itemView.tvProductName.text =  productName.toString()
 
-
-                Picasso.with(context).load(productImage).into(itemView.ivProductImage)
+                Picasso.with(context).load(productImage).fit().centerCrop()
+                    .placeholder(R.drawable.ic_app_icon_foreground)
+                    .error(R.drawable.ic_app_icon_foreground)
+                    .into(itemView.ivProductImage);
             }
         }
     }

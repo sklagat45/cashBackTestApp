@@ -22,7 +22,6 @@ class OffersFragment : Fragment(R.layout.fragment_offers) {
     private var binding: FragmentOffersBinding? = null
     private lateinit var offersAdapter: OffersAdapter
     private val offersViewModel: OffersViewModel by viewModel()
-
     private var date:String= ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,6 +49,7 @@ class OffersFragment : Fragment(R.layout.fragment_offers) {
             }
         }.launchIn(lifecycleScope)
     }
+
 
     private fun fetchRemoteOffers() {
         offersViewModel.fetchRemoteOffers()
