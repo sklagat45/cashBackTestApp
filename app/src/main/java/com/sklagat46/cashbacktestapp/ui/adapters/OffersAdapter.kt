@@ -28,7 +28,7 @@ class OffersAdapter(private val context: Context) : ListAdapter<Offers, OffersAd
                     com = promotion_details_retailer_commission?.div(100)?.times(productCashBack) ?:0.0
                 }
                 val newCom =com.times(100)
-                //com=0.5/100 * 3/100
+                //com=0.5/100 * 3*100
 
                 itemView.tvKshComAmount.text = newCom.toString()
                 itemView.tvQuantity.text =  productSize.toString()
